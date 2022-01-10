@@ -1,0 +1,55 @@
+
+* {
+	box-sizing: border-box;
+	font-family: Montserrat, sans-serif;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	margin: 10px 10px 0 10px;
+}
+
+.card{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+table{
+	display: flex;
+	flex-direction: column;
+}
+
+.tableau {
+	display: flex;
+}
+
+tbody {
+	width: 50%;
+	border: 2px solid black;
+	border-radius: 20px;
+	box-shadow: 6px 6px 6px grey;
+	margin: 10px;
+}
+
+.profile_picture {
+	object-fit: cover;
+	width: 200px;
+}
+
+tr {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+td {
+	padding: 5px;
+}
+
+.reseaux {
+	display: flex;
+	justify-content: space-around;
+}
