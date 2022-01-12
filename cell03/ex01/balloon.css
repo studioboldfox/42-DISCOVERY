@@ -5,11 +5,10 @@ body{
 	align-items: center;
 }
 
-.reddiv{
+.originalDiv{
 	width: 200px;
 	height: 200px;
-	background-color: red;
-	border: 3px solid red;
+	background-color: #ff0000;
 	border-radius: 100%;
 	cursor: pointer;
 }

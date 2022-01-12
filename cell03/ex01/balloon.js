@@ -1,46 +1,85 @@
-// récupération de l'élément div
-const reddiv = document.querySelector('.reddiv');
-
-// accès aux valeurs width & height & color de la class reddiv dans le CSS
-const cssWidthSize = getComputedStyle(reddiv, null);
-const cssHeightSize = getComputedStyle(reddiv, null);
-const cssColorDiv = getComputedStyle(reddiv, null);
-
-// récupération des valeurs width & height & color
-let widthSize = cssWidthSize.getPropertyValue("width");
-let heightSize = cssHeightSize.getPropertyValue("height");
-let colorDiv = cssColorDiv.getPropertyValue("background-color");
-
-main()
+main();
 
 function main() {
-	conversionPixels();
-	modifySize();
+	biggerDiv();
+	minimalDiv();
 }
 
+//////////////////////////////////////////////////////////////////////////
+////////// MISE EN PLACE DU GROSSISEMENT ET DU CHANGEMENT DE COULEUR /////
+//////////////////////////////////////////////////////////////////////////
 
-function conversionPixels() {
-	const parsedWidth = parseInt(widthSize, 10);
-	const parsedHeight = parseInt(heightSize, 10);
+function biggerDiv() {
+	// récupération de l'élément div
+	const originalDiv = document.querySelector('.originalDiv');
 
-	if (isNaN(parsedWidth) || isNaN(parsedHeight)) {
-		return 0;
-	}
-	return parsedWidth && parsedHeight;
-}
+	// écoute de l'evenement du click sur la div
+	// application des fonctions choisies
+	originalDiv.addEventListener("click", () => {
 
-function modifySize() {
-	newWidth = 0;
-	newHeight = 0;
-	reddiv.addEventListener("click", (e) => {
-		e.preventDefault;
-		for (i = 0; i < 21; i++){
-			parsedWidth = newWidth + 10;
-		}
+		// accès aux valeurs width & height & color de la class originalDiv dans le CSS
+		const cssWidthSize = getComputedStyle(originalDiv, null);
+		const cssColorDiv = getComputedStyle(originalDiv, null);
+
+		// récupération des valeurs width & height & color
+		let widthSize = cssWidthSize.getPropertyValue("width");
+		let colorDiv = cssColorDiv.getPropertyValue("background-color");
+
+		// parsing de la taille de la div
+		let parsedSize = parseInt(widthSize) + 10;
+		console.log(parsedSize);
+
+		if (parsedSize > 420)
+			parsedSize = 200;
+		originalDiv.style.borderRadius = originalDiv.style.width = originalDiv.style.height = parsedSize.toString() + 'px';
+
+		let changeColor;
+		if (colorDiv === 'rgb(255, 0, 0)') // red
+			changeColor = 'green';
+		else if (colorDiv === 'rgb(0, 128, 0)') // green
+			changeColor = 'blue';
+		else
+			changeColor = 'red';
+		originalDiv.style.backgroundColor = changeColor;
 	});
 }
 
-function changeStyle() {
 
+////////////////////////////////////////////////////////////////////////////
+////////// MISE EN PLACE DU RETRECISSEMENT ET DU CHANGEMENT DE COULEUR /////
+////////////////////////////////////////////////////////////////////////////
+
+function minimalDiv() {
+	// récupération de l'élément div
+	const originalDiv = document.querySelector('.originalDiv');
+
+	// écoute de l'evenement du click sur la div
+	// application des fonctions choisies
+	originalDiv.addEventListener("mouseout", () => {
+
+		// accès aux valeurs width & height & color de la class originalDiv dans le CSS
+		const cssWidthSize = getComputedStyle(originalDiv, null);
+		const cssColorDiv = getComputedStyle(originalDiv, null);
+
+		// récupération des valeurs width & height & color
+		let widthSize = cssWidthSize.getPropertyValue("width");
+		let colorDiv = cssColorDiv.getPropertyValue("background-color");
+
+		// parsing de la taille de la div
+		let parsedSize = parseInt(widthSize) - 5;
+		console.log(parsedSize);
+
+		if (parsedSize < 200)
+			parsedSize = 200;
+		originalDiv.style.borderRadius = originalDiv.style.width = originalDiv.style.height = parsedSize.toString() + 'px';
+
+		let changeColor;
+		if (colorDiv === 'rgb(255, 0, 0)') // red
+			changeColor = 'red';
+		else if (colorDiv === 'rgb(0, 128, 0)') // green
+			changeColor = 'blue';
+		else
+			changeColor = 'green';
+		originalDiv.style.backgroundColor = changeColor;
+	});
 }
-
