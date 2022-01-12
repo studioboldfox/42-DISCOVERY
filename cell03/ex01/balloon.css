@@ -1,0 +1,15 @@
+body{
+	height: 1300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.reddiv{
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	border: 3px solid red;
+	border-radius: 100%;
+	cursor: pointer;
+}
