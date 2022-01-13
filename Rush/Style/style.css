@@ -1,0 +1,115 @@
+@font-face {
+	font-family: "Montserrat";
+	src: url(./fonts/Montserrat-Light.otf);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body{
+	font-family: "Montserrat";
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	position: relative;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 9997;
+	overflow-y: auto;
+	display: flex!important;
+	justify-content: center!important;
+	flex-direction: column!important;
+}
+
+.navbar {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+nav{
+	background-color: #dfd4d4;
+}
+
+nav li{
+	list-style: none;
+	padding: 20px 20px 20px 20px;
+}
+
+
+a{
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	font-size: large;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.container img {
+	filter: grayscale();
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 3px solid white;
+	box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.5);
+	transition: filter 0.4s ease-in-out;
+}
+
+.container:hover img {
+	filter: none;
+}
+
+h1 {
+	margin: 0.50px;
+}
+.title {
+	position: relative;
+}
+
+.title::after {
+	position: absolute;
+	content: "";
+	width: 0%;
+	height: 4px;
+	background-color: whitesmoke;
+	left: 50%;
+	bottom: -10px;
+	transition: all 0.4s ease-in-out;
+}
+
+.container:hover .title::after {
+	width: 100%;
+	left: 0;
+}
+
+.container-logo{
+	position: relative;
+}
+
+.logo {
+	width: 500px;
+	z-index: 2;
+}
+
+.img-background{
+	background-image: url(../Images/ecole_42.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 1000px;
+	opacity: 0.6;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
